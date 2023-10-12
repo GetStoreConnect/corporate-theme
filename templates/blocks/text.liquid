@@ -1,0 +1,21 @@
+<div
+  class="SC-ContentBlock SC-Text sc-pe-base{% if content_block.alignment != blank %} sc-{{ content_block.alignment }}{% endif %}"
+  id="{% if content_block.identifier != blank %}SC-ContentBlock-{{ content_block.identifier }}{% endif %}"
+  data-cb="{{ content_block.identifier }}">
+
+  {%- unless content_block.pull_text == blank %}
+    {{ content_block.pull_text }}
+  {%- endunless %}
+
+  {%- unless content_block.title == blank %}
+    <h2 class="sc-font-xxlarge">{{ content_block.title }}</h2>
+  {%- endunless %}
+
+  {%- unless content_block.subtitle == blank %}
+    <p class="sc-shade-dark">{{ content_block.subtitle }}</p>
+  {%- endunless %}
+
+  {%- unless content_block.content == blank %}
+    {{ content_block.content }}
+  {%- endunless %}
+</div>

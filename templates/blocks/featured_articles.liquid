@@ -1,0 +1,45 @@
+<div
+  class="SC-ContentBlock SC-FeaturedArticles"
+  id="{% if content_block.identifier != blank %}SC-ContentBlock-{{ content_block.identifier }}{% endif %}"
+  data-cb="{{ content_block.identifier }}">
+
+  {%- unless content_block.title == blank %}
+    <h2>{{ content_block.title }}</h2>
+  {%- endunless %}
+
+  {%- unless content_block.subtitle == blank %}
+    <div class="sc-two-thirds-medium-and-up sc-mb" style="line-height: var(--sc-line-height);">
+      <p>{{ content_block.subtitle }}</p>
+    </div>
+  {%- endunless %}
+
+  {%- if content_block.articles.size > 0 %}
+    <div class="sc-one-to-three-column">
+      {%- for article in content_block.articles %}
+        <div class="SC-CardGrid_item">
+
+          <a class="SC-ArticleCard sc-height-100 sc-pos-relative sc-overflow-hidden" href="{{ article.path }}">
+            {%- if article.hero_image %}
+              <div class="SC-ArticleCard_image">
+                <img
+                  class="sc-image-ease-out"
+                  src="{{ article.hero_image.large_url }}"
+                  loading="lazy" />
+              </div>
+            {%- endif %}
+            <div class="SC-ArticleCard_data sc-pos-absolute sc-depth-foreground sc-pl-base">
+              <div class="SC-ArticleCard_heading">
+                {{ article.title }}
+              </div>
+              <div class="SC-ArticleCard_date">
+                {{ article.publish_on | date: '%B %-d, %Y' }}
+              </div>
+            </div>
+            <div class="SC-ArticleCard_overlay"></div>
+          </a>
+
+        </div>
+      {%- endfor %}
+    </div>
+  {%- endif %}
+</div>
