@@ -1,0 +1,10 @@
+<article id="SC-page-{{ current_page.identifier }}">
+  {%- render "shared/page_header", 
+    header_modifier: "sc-bg-primary sc-color-white",
+    wrapper_modifier: "SC-PageHeader_wrapper sc-ms-auto sc-ps-base sc-lg:ps-large sc-pe-xlarge sc-md:pe-xxlarge",
+    heading: current_page.title,
+    heading_styles: "sc-h1",
+    sub_heading: current_page.subtitle
+  %}
+  {{ current_page.body_content }}
+</article>
