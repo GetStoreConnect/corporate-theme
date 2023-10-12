@@ -1,0 +1,60 @@
+{%- cache "footer", items: [current_store, current_customer, current_privacy] -%}
+  {%- if current_store.footer != blank %}
+    {{ current_store.footer.render }}
+  {%- else %}
+    {%- capture store_logo %}
+      <a href="{{ current_store.home_path }}" class="SC-Logo">
+        {%- if current_store.logo != blank %}
+          <img src="{{ current_store.logo.url }}" class="SC-Logo_image">
+        {%- else %}
+          <svg
+            class="SC-Placeholder"
+            width="180px"
+            viewBox="0 0 180 40">
+            <rect
+              width="100%"
+              height="100%"
+              rx="20"></rect>
+          </svg>
+        {%- endif %}
+      </a>
+    {%- endcapture %}
+    <footer class="SC-Footer" id="SC-Footer">
+      <div class="sc-container">
+        <div class="sc-one-to-three-column sc-gap-xlarge-medium-and-up">
+          <div>
+            {{ store_logo }}<br>
+            <p class="sc-font-base sc-mt-base">Discover why StoreConnect excels as the ultimate ecommerce solution for corporate needs.
+            </p>
+            {% render 'shared/social' %}
+          </div>
+          <div class="sc-md:pt-medium sc-md:justify-self-center">
+            <h3>{{ "sc.footer.quick.links" | t }}</h3>
+            {{ all_menus['corporate-quick-links'].render }}
+          </div>
+          <div class="sc-md:pt-medium sc-md:justify-self-center">
+            <h3>Get in touch</h3>
+            <p class="sc-font-base sc-line-height">
+              Phone: US +1 415 745 3230 <br>
+              Email: info@getstoreconnect.com<br>
+              <br>
+              Address: 100 Pine Street, Suite 1250,<br>
+              San Francisco, CA, 94111, USA
+            </p>
+          </div>
+        </div>
+        {%- if current_store.footer_menu != blank %}
+          {{ current_store.footer_menu.render }}
+        {%- endif %}
+        <div class="sc-shade-neutral sc-font-small sc-border-top sc-pt-xlarge sc-pb-base sc-mt-xlarge">
+          &copy; {{ current_store.name | default: "StoreConnect" }} {{ current_store.timezone | now | date: "%Y" }}
+          {%- if current_privacy.accepted? %}
+            <div>
+              <a class="sc-show-privacy-settings">{{ "privacy.manage_settings" | t }}</a>
+            </div>
+          {%- endif %}
+        </div>
+      </div>
+    </footer>
+  {%- endif %}
+{%- endcache %}
