@@ -4,9 +4,9 @@ This is a multi-purpose theme, ideal for corporate, B2B, or services companies.
 
 ## Directory Structure
 
-This theme has a specific folder structure. Some folders may be empty, but they need to remain part of the theme structure as they are not overridden or used for new templates.
+This theme follows a particular folder organization. While some folders may not contain any files, they must still need to remain within the theme structure.
 
-Also, it has been developed using the [Base Theme](https://github.com/GetStoreConnect/base-theme) as a boilerplate. The Corporate theme doesn't contain all the base theme structure, instead, we only include those customised, modified and new templates, snippets, variables or translations. Feel free to create a brand new theme using the base theme.
+Also, it has been developed using the [Base Theme](https://github.com/GetStoreConnect/base-theme) as a boilerplate. The Corporate theme doesn't contain all the base theme structure, instead, we only include those customised, modified and new templates, snippets, variables or translations. Feel free to create a brand new theme using the base theme or this one.
 
 ## Theme Installer
 
