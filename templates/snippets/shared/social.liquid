@@ -1,0 +1,27 @@
+{%- assign facebook_url = 'https://www.facebook.com/StoreConnectHQ' %}
+{%- assign twitter_url = 'https://twitter.com/storeconnecthq' %}
+{%- assign youtube_url = 'https://www.youtube.com/channel/UCngKdP2x8l1wcbAKW3tvU8g?themeRefresh=1' %}
+{%- assign linkedin_url = 'https://www.linkedin.com/company/storeconnect' %}
+
+<ul class="SC-Menu sc-gap-base sc-align-items-center">
+  <li class="SC-Menu_item">
+    <a href="{{ facebook_url }}" target="_blank">
+      {%- render 'shared/icons/facebook', width: '32' %}
+    </a>
+  </li>
+  <li class="SC-Menu_item">
+    <a href="{{ twitter_url }}" target="_blank">
+      {%- render 'shared/icons/twitter', width: '32' %}
+    </a>
+  </li>
+  <li class="SC-Menu_item">
+    <a href="{{ youtube_url }}" target="_blank">
+      {%- render 'shared/icons/youtube', width: '32' %}
+    </a>
+  </li>
+  <li class="SC-Menu_item">
+    <a href="{{ linkedin_url }}" target="_blank">
+      {%- render 'shared/icons/linkedin', width: '32' %}
+    </a>
+  </li>
+</ul>

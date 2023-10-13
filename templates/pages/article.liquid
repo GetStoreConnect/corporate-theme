@@ -1,0 +1,31 @@
+<div class="sc-container sc-me" id="SC-article-{{ current_article.identifier }}">
+  <article class="SC-Article">
+    <div class="sc-mb-base sc-font-base sc-font-bold" style="color: rgb(47, 66, 99);">
+      {{ current_article.publish_on | date: "%B %-d, %Y" }}
+    </div>
+    {%- render "shared/page_header", 
+        heading: current_article.title,
+        sub_heading: current_article.subtitle,
+        heading_styles: "SC-Article_heading",
+        wrapper_modifier: "sc-max-width-skinny"      
+   %}
+  </article>
+  {%- if current_article.hero_image != blank %}
+      <img src="{{ current_article.hero_image.huge_url }}" class="sc-mb-base" loading="lazy">
+  {%- endif %}
+  <div class="SC-Grid">
+    {%- if all_article_categories.size > 0 %}
+      <div class="SC-Grid_sidebar">
+        {%- render "articles/sidebar" %}
+      </div>
+    {%- endif %}
+
+    <div class="SC-Grid_main">
+      <section class="sc-rich-text">
+        <article class="SC-Article sc-max-width-skinny">
+          {{ current_article.body_content }}
+        </article>
+      </section>
+    </div>
+  </div>
+</div>

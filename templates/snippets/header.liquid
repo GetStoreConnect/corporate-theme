@@ -1,0 +1,83 @@
+{%- if current_store.header != blank %}
+  {{ current_store.header.render }}
+{%- else %}
+  {%- capture store_logo %}
+    <a href="{{ current_store.home_path }}" class="SC-Logo">
+      {%- if current_store.logo != blank %}
+        <img src="{{ current_store.logo.url }}" class="SC-Logo_image">
+      {%- else %}
+        <svg
+          class="SC-Placeholder"
+          width="180px"
+          viewBox="0 0 180 40">
+          <rect
+            width="100%"
+            height="100%"
+            rx="20"></rect>
+        </svg>
+      {%- endif %}
+    </a>
+  {%- endcapture %}
+
+  {%- if current_page.home_page? %}
+    {%- assign top_modifier = "" %}
+  {%- endif %}
+  <header class="sc-header {{ top_modifier }}" id="sc-header">
+    <div class="sc-header_top sc-hide-up-to-large">
+      <div class="sc-header_top_inner sc-flex sc-align-items-center sc-justify-center sc-gap-xlarge sc-lg:pe-micro sc-ms-auto sc-lg:ps-large sc-color-white">
+        <span>{{ "Lorem ipsum is fun to use it has survived not only five centuries" }}</span>
+      </div>
+    </div>
+    {%- render "header/geolocation" %}
+    <div class="sc-header_search sc-flex sc-justify-center sc-pt-medium is-hidden" data-toggle-visibility-target="sc-header_search">
+      <div class="sc-md:40vw">
+      {%- render "header/search" %}
+      </div>
+    </div>
+    <nav class="sc-header_inner sc-flex sc-justify-space-between sc-justify-align-center sc-align-items-center sc-gap-base sc-expand sc-lg:ps-large sc-ms-auto sc-ps-small">
+      <div class="sc-header_inner_left">
+        <div>
+          {{ store_logo }}
+        </div>
+      </div>
+
+      <div class="sc-header_inner_center sc-grow">
+        <nav class="sc-nav sc-pos-relative sc-flex sc-gap sc-align-items-center">
+          {%- if current_store.header_menu != blank %}
+            {{ current_store.header_menu.render }}
+            {%- render "header/dropdown/search" %}
+          {%- else %}
+            <ul
+              class="SC-Menu dropdown tier1 center sc-pos-relative"
+              id="SC-HeaderMenuPrimary"
+              data-menu="header">
+              {%- render "header/menu" %}
+            </ul>
+            {%- render "header/dropdown/search" %}
+          {%- endif %}
+        </nav>
+      </div>
+
+      <div class="sc-header_inner_right sc-flex sc-gap-base sc-align-items-center sc-font-small">
+        {% render 'header/dropdown/account' %}
+        {%- render "header/dropdown/cart" %}
+        <div class="sc-hide-up-to-large">
+          <a href="#" class="sc-ps-medium sc-pe-small sc-bg-darkest sc-color-white">Talk to sales</a>
+        </div>
+        <button
+          data-menu-init="{% if current_store.header_menu != blank %}{{ current_store.header_menu.identifier }}{% else %}header{% endif %}"
+          class="SC-Icon sc-hide-large-and-up"
+          type="button">
+          {%- render "shared/icons/hamburger", style_class: "sc-pointer-events-none" %}
+        </button>
+      </div>
+    </nav>
+    <div class="SC-Navbar">
+      <div class="SC-Navbar_inner">
+        <div class="sc-hide-large-and-up sc-md:mb-small">
+          {%- render "header/search" %}
+        </div>
+      </div>
+    </div>
+  </header>
+{%- endif %}

@@ -1,0 +1,16 @@
+{%- default product_category: blank -%}
+
+<div class="SC-CategoryCard">
+  <a href="{{ product_category.path }}" class="sc-flex-col">
+    <div class="SC-CategoryCard_image sc-display-inline-block sc-overflow-hidden">
+      {%- if product_category.image %}
+        <img loading="lazy" src="{{ product_category.image.large_url }}"/>
+      {%- else %}
+        {% render "shared/placeholder_image" %}
+      {%- endif %}
+    </div>
+    <div class="SC-CategoryCard_heading sc-pe">
+      <h4 class="sc-font-400 sc-text-center sc-shade-darkest sc-m-none">{{ product_category.name }}</h4>
+    </div>
+  </a>
+</div>

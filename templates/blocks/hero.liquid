@@ -1,0 +1,44 @@
+{%- comment %}
+  New features:
+  - Title wrapped with h1, perfect for top-level headings.
+  key: hero
+{%- endcomment %}
+<div
+  class="SC-ContentBlock SC-ImageTextOverlay"
+  id="{% if content_block.identifier != blank %}SC-ContentBlock-{{ content_block.identifier }}{% endif %}"
+  data-cb="{{ content_block.identifier }}">
+  <div class="SC-Hero">
+    <div class="SC-Hero_container{% if content_block.alignment != blank %} sc-{{ content_block.alignment }}{% endif %}">
+      <div class="SC-Hero_content">
+
+        {%- unless content_block.title == blank %}
+          <h1 class="SC-Hero_heading">
+            {{ content_block.title }}
+          </h1>
+        {%- endunless %}
+
+        {%- unless content_block.subtitle == blank %}
+          <p class="SC-Hero_subheading">
+            {{ content_block.subtitle }}
+          </p>
+        {%- endunless %}
+
+        {%- unless content_block.content == blank %}
+          <div class="sc-mt-small">
+            {{ content_block.content }}
+          </div>
+        {%- endunless %}
+
+        {%- unless content_block.link_label == blank and content_block.link_target == blank %}
+          <a class="SC-Hero_cta" href="{{ content_block.link_target }}">
+            {{ content_block.link_label }}
+          </a>
+        {%- endunless %}
+      </div>
+      <div class="SC-Hero_image sc-pos-relative">
+        <img src="{{ content_block.image.url }}" alt="{{ content_block.image.alt_text }}">
+        <div class="SC-Hero_overlay"></div>
+    </div>
+    </div>
+  </div>
+</div>

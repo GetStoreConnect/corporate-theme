@@ -1,0 +1,9 @@
+{%- default pull_text: blank %}
+{%- default title: blank %}
+{%- default content: blank %}
+
+<div class="SC-Image_caption sc-color-white sc-p-base sc-pos-absolute sc-top-0 sc-depth-foreground sc-three-quarters-medium-and-up">
+  <div class="sc-font-base sc-mb-base">{{ pull_text | strip_html }}</div>
+  <h3 class="sc-font-xlarge sc-mb-small">{{ title | strip }}</h3>
+  <div class="sc-font-base sc-mb-base slide-down">{{ content | strip_html }}</div>
+</div>
