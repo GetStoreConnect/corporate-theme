@@ -2,7 +2,8 @@
 
 This is a multi-purpose theme, ideal for corporate, B2B, or services companies.
 
-![Uploading corporate_theme_preview.png…]()
+![corporate_theme_preview](https://github.com/GetStoreConnect/corporate-theme/assets/77841884/6bff631e-1f28-43a0-a8a0-cee82b9191dd)
+
 
 ## Directory Structure
 
