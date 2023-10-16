@@ -2,6 +2,9 @@
 
 This is a multi-purpose theme, ideal for corporate, B2B, or services companies.
 
+![corporate_theme_preview](https://github.com/GetStoreConnect/corporate-theme/assets/77841884/6bff631e-1f28-43a0-a8a0-cee82b9191dd)
+
+
 ## Directory Structure
 
 This theme follows a particular folder organization. While some folders may not contain any files, they must still need to remain within the theme structure.
