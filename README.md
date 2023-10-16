@@ -2,6 +2,8 @@
 
 This is a multi-purpose theme, ideal for corporate, B2B, or services companies.
 
+![Uploading corporate_theme_preview.png…]()
+
 ## Directory Structure
 
 This theme follows a particular folder organization. While some folders may not contain any files, they must still need to remain within the theme structure.
