@@ -1,9 +1,9 @@
-<div class="SC-Menu_item dropdown sc-hide-up-to-medium">
+<li class="SC-Menu_item dropdown sc-hide-up-to-medium">
   {%- if current_customer != blank %}
     <a
       href="{{ current_store.account_path }}"
       class="sc-display-block sc-pos-relative"
-      data-nav-trigger="account">
+      data-menu-init="account">
       <span class="sc-hide-up-to-xlarge">  
         {{ "header.dropdowns.account.heading" | t }}
         {%- render 'shared/icons/chevron', style_class: "sc-ml-tiny sc-mt-micro", width: 12 %}
@@ -13,7 +13,7 @@
       </span>
     </a>
 
-    <ul class="SC-Menu dropdown sc-right-0" data-nav="account">
+    <ul class="SC-Menu dropdown sc-right-0" data-menu="account">
       {%- if current_customer.account != blank and current_customer.account.name != blank and current_customer.account.name != current_customer.name %}
         <li>
           <h3>{{ current_customer.account.name }}</h3>
@@ -73,4 +73,4 @@
       </span>
     </a>
   {%- endif %}
-</div>
+</li>
