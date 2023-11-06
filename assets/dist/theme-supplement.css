@@ -291,6 +291,12 @@ h2 {
   width: 100%;
 }
 
+.sc-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .SC-PageHeader_wrapper {
   max-width: var(--sc-max-width);
 }
@@ -429,12 +435,12 @@ h2 {
 }
 @media screen and (min-width: 768px) {
   .SC-ContentBlockContainer {
-    padding: var(--sc-spacing-xxlarge) var(--sc-spacing-base);
+    padding: var(--sc-spacing-xlarge) var(--sc-spacing-base);
   }
 }
 @media screen and (min-width: 992px) {
   .SC-ContentBlockContainer {
-    padding: var(--sc-spacing-xxlarge) 0;
+    padding: var(--sc-spacing-xlarge) 0;
   }
 }
 .SC-ContentBlockContainer_header {
@@ -470,16 +476,20 @@ h2 {
   z-index: 5;
 }
 
-#SC-pages-home .sc-theme-preview-bar ~ .sc-header {
-  margin-top: 35px;
-}
-
 .SC-PageNav_heading {
   font-size: var(--sc-font-base);
 }
 
 .SC-PageNav_link {
   font-size: var(--sc-font-small);
+}
+
+.SC-Menu.mega {
+  border-radius: var(--sc-border-radius);
+}
+
+.SC-Menu.dropdown:not(.tier1) {
+  border-radius: var(--sc-border-radius);
 }
 
 .sc-center-text {
@@ -607,18 +617,24 @@ h2 {
   padding: 0;
 }
 
-.tns-cards .tns-controls button {
-  width: 25px;
-  height: 25px;
-  top: 0;
-  border-radius: unset;
+.tns-controls button {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--sc-border-radius);
+  background-size: 35%;
 }
-.tns-cards .tns-controls button:hover {
+.tns-controls button:hover {
   background-color: transparent;
 }
-.tns-cards .tns-controls button[data-controls=prev] {
-  left: unset;
-  right: 80px;
+
+.tns-cards .tns-controls button {
+  top: 0;
+}
+@media screen and (min-width: 768px) {
+  .tns-cards .tns-controls button[data-controls=prev] {
+    left: unset;
+    right: 80px;
+  }
 }
 
 .sc-rotate-270 {
