@@ -1,0 +1,21 @@
+{% default state: off %}
+{% default bg: blank %}
+{% default color: blank %}
+
+{%- if state == 'on' %}
+  {%- if bg != blank or color != blank %}
+  <li class="sc-hide-up-to-large">
+    <a href="{{ theme_variables["sc.header.cta.target"] }}" 
+    class="sc-ps-medium sc-pe-small sc-border-radius" style="background-color: {{ bg }}; color: {{ color }}">
+      {{ "sc.header.cta.label" | t }}
+    </a>
+  </li>
+  {% else %}
+  <li class="sc-hide-up-to-large">
+    <a href="{{ theme_variables["sc.header.cta.target"] }}" 
+    class="sc-ps-medium sc-pe-small sc-border-radius sc-bg-darkest sc-color-white">
+      {{ "sc.header.cta.label" | t }}
+    </a>
+  </li>
+  {%- endif %}
+{%- endif %}
