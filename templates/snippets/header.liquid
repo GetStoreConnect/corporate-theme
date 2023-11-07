@@ -27,13 +27,12 @@
 
     {% comment %}Top header content {% endcomment %}
     {% default top_header_state: theme_variables['sc.header.top.header.state'] %}
-    {% default top_header_message: theme_variables['sc.header.top.header.message']%}
 
     <header class="sc-header" id="sc-header">
       <div class="sc-header_top sc-hide-up-to-large">
         {% if top_header_state == 'on' %}
         <div class="sc-header_top_inner sc-flex sc-align-items-center sc-justify-center sc-gap-xlarge sc-lg:pe-micro sc-ms-auto sc-lg:ps-large sc-color-white">
-          <span>{{ top_header_message }}</span>
+          <span>{{ "sc.header.top.header.message" | t }}</span>
         </div>
         {% endif %}
       </div>

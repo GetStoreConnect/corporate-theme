@@ -352,8 +352,11 @@ h2 {
     right: 0;
     bottom: 0;
     left: 0;
+    background-color: var(--sc-header-bg);
+    color: var(--sc-header-color);
     flex-wrap: nowrap;
     flex-direction: column;
+    height: 100vh;
     overflow-y: auto;
     padding: var(--sc-spacing-large);
     opacity: 0;
@@ -441,14 +444,6 @@ h2 {
 @media screen and (min-width: 992px) {
   .SC-ContentBlockContainer {
     padding: var(--sc-spacing-xlarge) 0;
-  }
-}
-.SC-ContentBlockContainer_header {
-  margin-bottom: var(--sc-spacing-xlarge);
-}
-@media screen and (min-width: 992px) {
-  .SC-ContentBlockContainer_header {
-    margin-bottom: var(--sc-spacing-huge);
   }
 }
 
