@@ -123,10 +123,7 @@ h2 {
 }
 .sc-header_search {
   position: relative;
-  transition: all 2s linear;
-}
-.sc-header_search.is-hidden {
-  animation: slideaway 200ms;
+  transition: all 2s ease;
 }
 .sc-header_inner {
   transition: 0.35s;
@@ -138,8 +135,6 @@ h2 {
   transition-duration: 1s;
   background: var(--sc-header-bg);
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-  backdrop-filter: blur(10px);
-  animation: slideDown 0.35s ease-out;
 }
 .sc-header-transparency {
   background-color: transparent;

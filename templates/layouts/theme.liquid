@@ -32,7 +32,6 @@
     {{ theme_supplement_stylesheet }}
     {% if current_store.global_css != blank %}<style>{{ current_store.global_css }}</style>{% endif %}
     {%- render "styles" %}
-    <style>{%- render "assets/css" %}</style>
     {%- comment -%} Scripts {%- endcomment -%}
     {{ sc_javascript }}
     {{ theme_javascript }}
@@ -40,6 +39,7 @@
     {% if current_store.global_javascript != blank %}<script>{{ current_store.global_javascript }}</script>{% endif %}
     {%- render "scripts" %}
     {%- render "events" %}
+    {%- render "shared/fonts" %}
     {{ sc_support }}
      <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
     {%- render "store/head" %}
