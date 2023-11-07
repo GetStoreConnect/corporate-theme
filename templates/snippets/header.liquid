@@ -37,49 +37,46 @@
         {% endif %}
       </div>
       {%- render "header/geolocation" %}
-
-      <nav class="sc-header_inner sc-expand">
-        <div class="sc-header_search sc-flex sc-justify-center sc-pt-medium is-hidden" data-toggle-visibility-target="sc-header_search">
-          <div class="sc-md:40vw">
-            {%- render "header/search" %}
+      <div class="sc-header_search sc-flex sc-justify-center sc-pt-medium is-hidden" data-toggle-visibility-target="sc-header_search">
+        <div class="sc-md:40vw">
+        {%- render "header/search" %}
+        </div>
+      </div>
+      <nav class="sc-header_inner sc-flex sc-justify-space-between sc-justify-align-center sc-align-items-center sc-gap-base sc-expand sc-lg:ps-large sc-ms-auto sc-ps-small">
+        <div class="sc-header_inner_left">
+          <div>
+            {{ store_logo }}
           </div>
         </div>
-        <div class=" sc-flex sc-justify-space-between sc-justify-align-center sc-align-items-center sc-gap-base sc-expand sc-lg:ps-large sc-ms-auto sc-ps-small">
-          <div class="sc-header_inner_left">
-            <div>
-              {{ store_logo }}
-            </div>
-          </div>
 
-          <div class="sc-header_inner_center sc-grow">
-            <nav class="sc-nav sc-pos-relative sc-flex sc-gap sc-align-items-center">
-              {%- if current_store.header_menu != blank %}
-                {{ current_store.header_menu.render }}
-                {%- render "header/dropdown/search" %}
-              {%- else %}
-                <ul
-                  class="SC-Menu dropdown tier1 center sc-pos-relative"
-                  id="SC-HeaderMenuPrimary"
-                  data-menu="header">
-                  {%- render "header/menu" %}
-                </ul>
-                {%- render "header/dropdown/search" %}
-              {%- endif %}
-            </nav>
-          </div>
-
-          <ul class="sc-header_inner_right sc-menu sc-flex sc-gap-base sc-align-items-center sc-font-small">
-            {%- render 'header/dropdown/account' %}
-            {%- render "header/dropdown/cart" %}
-            {%- render "header/dropdown/cta", state: cta_state, bg: cta_bg, color: cta_color %}
-            <button
-              data-menu-init="{% if current_store.header_menu != blank %}{{ current_store.header_menu.identifier }}{% else %}header{% endif %}"
-              class="SC-Icon sc-hide-large-and-up"
-              type="button">
-              {%- render "shared/icons/hamburger", style_class: "sc-pointer-events-none" %}
-            </button>
-          </ul>
+        <div class="sc-header_inner_center sc-grow">
+          <nav class="sc-nav sc-pos-relative sc-flex sc-gap sc-align-items-center">
+            {%- if current_store.header_menu != blank %}
+              {{ current_store.header_menu.render }}
+              {%- render "header/dropdown/search" %}
+            {%- else %}
+              <ul
+                class="SC-Menu dropdown tier1 center sc-pos-relative"
+                id="SC-HeaderMenuPrimary"
+                data-menu="header">
+                {%- render "header/menu" %}
+              </ul>
+              {%- render "header/dropdown/search" %}
+            {%- endif %}
+          </nav>
         </div>
+
+        <ul class="sc-header_inner_right sc-menu sc-flex sc-gap-base sc-align-items-center sc-font-small">
+          {%- render 'header/dropdown/account' %}
+          {%- render "header/dropdown/cart" %}
+          {%- render "header/dropdown/cta", state: cta_state, bg: cta_bg, color: cta_color %}
+          <button
+            data-menu-init="{% if current_store.header_menu != blank %}{{ current_store.header_menu.identifier }}{% else %}header{% endif %}"
+            class="SC-Icon sc-hide-large-and-up"
+            type="button">
+            {%- render "shared/icons/hamburger", style_class: "sc-pointer-events-none" %}
+          </button>
+        </ul>
       </nav>
       <div class="SC-Navbar">
         <div class="SC-Navbar_inner">
