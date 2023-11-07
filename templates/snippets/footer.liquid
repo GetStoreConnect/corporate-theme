@@ -1,4 +1,21 @@
 {%- cache "footer", items: [current_store, current_customer, current_privacy] -%}
+
+  {% comment %} Store info {% endcomment %}
+  {% default store_description: theme_variables['sc.footer.store.description']%}
+  {% default cta_title: theme_variables['sc.footer.cta.title'] %}
+  {% default store_phone: theme_variables['sc.footer.store.phone'] %}
+  {% default store_email: theme_variables['sc.footer.cta.email'] %}
+  {% default store_street_address: theme_variables['sc.footer.store.street.address'] %}
+  {% default store_city_address: theme_variables['sc.footer.store.city.address'] %}
+  {% default store_postcode_address: theme_variables['sc.footer.store.postcode.address'] %}
+  {% default store_country_address: theme_variables['sc.footer.store.country.address'] %}
+
+  {% comment %} Store social links {% endcomment %}
+  {% default facebook_url: theme_variables['sc.social.facebook']%}
+  {% default x_url: theme_variables['sc.social.x'] %}
+  {% default youtube_url: theme_variables['sc.social.youtube'] %}
+  {% default linkedin_url: theme_variables['sc.social.facebook'] %}
+
   {%- if current_store.footer != blank %}
     {{ current_store.footer.render }}
   {%- else %}
@@ -24,22 +41,36 @@
         <div class="sc-one-to-three-column sc-gap-xlarge-medium-and-up">
           <div>
             {{ store_logo }}<br>
-            <p class="sc-font-base sc-mt-base">Discover why StoreConnect excels as the ultimate ecommerce solution for corporate needs.
-            </p>
-            {% render 'shared/social' %}
+            {% if store_description != blank %}
+              <p class="sc-font-base sc-mt-base">{{ store_description }}</p>
+            {% endif %}
+            {% render 'shared/social',
+              fb: facebook_url,
+              x: x_url,
+              youtube: youtube_url,
+              in: linkedin_url
+            %}
           </div>
           <div class="sc-md:pt-medium sc-md:justify-self-center">
             <h3>{{ "sc.footer.quick.links" | t }}</h3>
-            {{ all_menus['corporate-quick-links'].render }}
+            {{ all_menus['quick-links'].render }}
           </div>
           <div class="sc-md:pt-medium sc-md:justify-self-center">
-            <h3>Get in touch</h3>
+            {%- if cta_title != blank %}
+              <h3>{{ cta_title }}</h3>
+            {%- endif %}
             <p class="sc-font-base sc-line-height">
-              Phone: US +1 415 745 3230 <br>
-              Email: info@getstoreconnect.com<br>
+              {% if store_phone != blank %}
+                {{ "Phone:" }} {{ store_phone }}<br>
+              {% endif %}
+              {% if store_email %}
+                {{ "Email:"}} {{ store_email }}<br>
+              {% endif %}
               <br>
-              Address: 100 Pine Street, Suite 1250,<br>
-              San Francisco, CA, 94111, USA
+              {% if store_street_address != blank %}{{ "Address:"}} {{ store_street_address }} <br>{% endif %}
+              {% if store_city_address != blank %} {{ store_city_address }},{% endif %}
+              {% if store_postcode_address != blank %} {{ store_postcode_address }},{% endif %}
+              {% if store_country_address != blank %} {{ store_country_address }}{% endif %}
             </p>
           </div>
         </div>

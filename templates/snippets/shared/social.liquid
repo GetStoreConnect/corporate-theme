@@ -1,27 +1,35 @@
-{%- assign facebook_url = 'https://www.facebook.com/StoreConnectHQ' %}
-{%- assign twitter_url = 'https://twitter.com/storeconnecthq' %}
-{%- assign youtube_url = 'https://www.youtube.com/channel/UCngKdP2x8l1wcbAKW3tvU8g?themeRefresh=1' %}
-{%- assign linkedin_url = 'https://www.linkedin.com/company/storeconnect' %}
+{% default fb: blank %}
+{% default x: blank %}
+{% default youtube: blank %}
+{% default in: blank %}
 
 <ul class="SC-Menu sc-gap-base sc-align-items-center">
+  {%- if fb != blank %}
   <li class="SC-Menu_item">
     <a href="{{ facebook_url }}" target="_blank">
       {%- render 'shared/icons/facebook', width: '32' %}
     </a>
   </li>
+  {%- endif %}
+  {%- if x != blank %}
   <li class="SC-Menu_item">
     <a href="{{ twitter_url }}" target="_blank">
       {%- render 'shared/icons/twitter', width: '32' %}
     </a>
   </li>
+  {%- endif %}
+  {%- if youtube != blank %}
   <li class="SC-Menu_item">
     <a href="{{ youtube_url }}" target="_blank">
       {%- render 'shared/icons/youtube', width: '32' %}
     </a>
   </li>
+  {%- endif %}
+  {%- if in != blank %}
   <li class="SC-Menu_item">
     <a href="{{ linkedin_url }}" target="_blank">
       {%- render 'shared/icons/linkedin', width: '32' %}
     </a>
   </li>
+  {%- endif %}
 </ul>
