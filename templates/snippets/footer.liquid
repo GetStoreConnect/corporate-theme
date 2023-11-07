@@ -1,8 +1,5 @@
 {%- cache "footer", items: [current_store, current_customer, current_privacy] -%}
-
   {% comment %} Store info {% endcomment %}
-  {% default store_description: theme_variables['sc.footer.store.description']%}
-  {% default cta_title: theme_variables['sc.footer.cta.title'] %}
   {% default store_phone: theme_variables['sc.footer.store.phone'] %}
   {% default store_email: theme_variables['sc.footer.cta.email'] %}
   {% default store_street_address: theme_variables['sc.footer.store.street.address'] %}
@@ -41,9 +38,7 @@
         <div class="sc-one-to-three-column sc-gap-xlarge-medium-and-up">
           <div>
             {{ store_logo }}<br>
-            {% if store_description != blank %}
-              <p class="sc-font-base sc-mt-base">{{ store_description }}</p>
-            {% endif %}
+            <p class="sc-font-base sc-mt-base">{{ "sc.footer.store.description" | t }}</p>
             {% render 'shared/social',
               fb: facebook_url,
               x: x_url,
@@ -56,9 +51,7 @@
             {{ all_menus['quick-links'].render }}
           </div>
           <div class="sc-md:pt-medium sc-md:justify-self-center">
-            {%- if cta_title != blank %}
-              <h3>{{ cta_title }}</h3>
-            {%- endif %}
+            <h3>{{ "sc.footer.cta.title" | t }}</h3>
             <p class="sc-font-base sc-line-height">
               {% if store_phone != blank %}
                 {{ "Phone:" }} {{ store_phone }}<br>
