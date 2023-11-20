@@ -393,8 +393,17 @@ h2 {
 
 .SC-Count {
   position: absolute;
-  top: 0;
-  right: -15px;
+}
+@media screen and (min-width: 768px) {
+  .SC-Count {
+    top: -3px;
+    right: -10px;
+  }
+}
+@media screen and (min-width: 1268px) {
+  .SC-Count {
+    position: initial;
+  }
 }
 
 .sc-container:not(.sc-container-capsule),
@@ -538,6 +547,10 @@ h2 {
   display: inline-flex;
 }
 
+.sc-align-items-end {
+  align-items: end;
+}
+
 @media screen and (min-width: 768px) {
   .sc-md\:justify-self-center {
     justify-self: center;
@@ -631,4 +644,4 @@ h2 {
   transform: rotate(270deg);
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=theme-supplement.css.map */
