@@ -4,7 +4,6 @@ This is a multi-purpose theme, ideal for corporate, B2B, or services companies.
 
 ![corporate_theme_preview](https://github.com/GetStoreConnect/corporate-theme/assets/77841884/6bff631e-1f28-43a0-a8a0-cee82b9191dd)
 
-
 ## Directory Structure
 
 This theme follows a particular folder organization. While some folders may not contain any files, they must still need to remain within the theme structure.
@@ -13,7 +12,7 @@ Also, it has been developed using the [Base Theme](https://github.com/GetStoreCo
 
 ## Theme Installer
 
-The theme installer is in your Salesforce org, where you must upload this theme as a zip file. Before uploading, remove the .git directory and README.md file from this repo. The theme installer displays errors if it does not find the standard directory structure.
+The theme installer is in your Salesforce org, where you must upload this theme as a zip file. Follow this documentation to find the theme installer and upload your theme: [How to Import Themes in StoreConnect](https://help.getstoreconnect.com/documentation/how-to-import-themes.html).
 
 ## New Templates
 
@@ -34,6 +33,8 @@ You can create new templates as long as they reside within the standard director
 
 - hero
 
+**Important:** New and custom content blocks need to be added to the content block template picklist manually.
+
 ### Modified Content Blocks
 
 - container
@@ -47,13 +48,8 @@ You can follow the instructions in this document to [add content blocks to the p
 
 ## Configuration
 
-- Ensure that your root directory does not contain any `.git` hidden folders or files
-- Compress it to a zip file
-- Upload it via the theme importer
-- Now, go to the theme template list and remove the `.liquid` on each template
-- Rename
-  - snippets/products/card/simple_card > snippets/products/simple_card
-  - snippets/products/card/card > snippets/products/card
+- Download this repository as a zip file
+- Upload it via the [theme importer](https://help.getstoreconnect.com/documentation/how-to-import-themes.html) in your Salesforce org
 - Preview your theme
 
 ### Recommended Help Articles
