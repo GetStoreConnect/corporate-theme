@@ -121,7 +121,7 @@ h2 {
 .sc-header_top_inner {
   position: relative;
 }
-.sc-header_search {
+.sc-header_search.is-hidden {
   position: relative;
   transition: all 2s ease;
   visibility: hidden;
@@ -130,7 +130,7 @@ h2 {
   transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease;
   padding: 0;
 }
-.sc-header_search.is-active {
+.sc-header_search:not(.is-hidden) {
   visibility: visible;
   max-height: 85px;
   opacity: 1;
