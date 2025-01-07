@@ -124,6 +124,18 @@ h2 {
 .sc-header_search {
   position: relative;
   transition: all 2s ease;
+  visibility: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+}
+.sc-header_search.is-active {
+  visibility: visible;
+  max-height: 85px;
+  opacity: 1;
+  padding-top: var(--sc-spacing-medium);
+  transition: all 0.5s;
 }
 .sc-header_inner {
   transition: 0.35s;
