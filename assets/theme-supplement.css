@@ -129,6 +129,8 @@ h2 {
   opacity: 0;
   transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease;
   padding: 0;
+  display: block;
+  height: 0;
 }
 .sc-header_search:not(.is-hidden) {
   visibility: visible;
@@ -136,6 +138,7 @@ h2 {
   opacity: 1;
   padding-top: var(--sc-spacing-medium);
   transition: all 0.5s;
+  height: auto;
 }
 .sc-header_inner {
   transition: 0.35s;
