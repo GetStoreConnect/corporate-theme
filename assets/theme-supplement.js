@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  const headerEl = document.querySelector('#sc-header');
+  const headerEl = document.querySelector('[data-header]');
   const headerHeight = headerEl.getBoundingClientRect().height / 2;
-  const navEl = document.querySelector('nav.sc-header_inner');
+  const navEl = document.querySelector('[data-header-wrapper]');
 
   const stickyNav = (entries) => {
     entries.forEach(entry => {

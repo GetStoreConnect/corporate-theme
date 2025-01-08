@@ -140,10 +140,11 @@ h2 {
   transition: all 0.5s;
   height: auto;
 }
-.sc-header_inner {
+.sc-header_wrapper {
+  width: 100%;
   transition: 0.35s;
 }
-.sc-header_inner.sticky {
+.sc-header_wrapper.sticky {
   position: fixed !important;
   top: 0;
   max-width: 100%;
