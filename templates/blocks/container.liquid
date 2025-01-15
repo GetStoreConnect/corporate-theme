@@ -1,15 +1,15 @@
-{% assign alignment = content_block.alignment %}
-{% assign type = content_block.sub_type %}
+{%- assign alignment = content_block.alignment -%}
+{%- assign type = content_block.sub_type -%}
 
-{%- capture alignment_value %}
+{%- capture alignment_value -%}
   {%- case alignment %}
     {%- when "center-text" %}
       {{ "sc-text-center" }}
   {%- endcase %}
-{%- endcapture %}
+{%- endcapture -%}
 
 <section
-  class="SC-ContentBlockContainer {% if type == 'hero_image' or type == 'expanded' %}sc-m-none sc-p-none{% endif %}"
+  class="SC-ContentBlockContainer {% if type == 'hero_image' or type == 'expanded' %}sc-m-none sc-p-none {{ type }}{% else %}{% endif %}"
   id="{% if content_block.identifier != blank %}SC-ContentBlockContainer-{{ content_block.identifier }}{% endif %}"
   data-cb="{{ content_block.identifier }}">
 
