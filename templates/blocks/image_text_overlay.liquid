@@ -9,14 +9,13 @@
   endif
 -%}
 
-
 <div
   class="SC-ContentBlock SC-ImageTextOverlay"
   id="{% if content_block.identifier != blank %}SC-ContentBlock-{{ content_block.identifier }}{% endif %}"
   data-cb="{{ content_block.identifier }}">
   <div class="SC-Banner{% if type != blank %} {{ type }}{% endif %}"{% if content_block.image != blank %} style="background-image: url('{{ content_block.image.massive_url }}')"{% endif %}{% if banner_attribute != blank %} data-banner{% endif %}>
     <div class="SC-Banner_container{% if content_block.alignment != blank %} sc-{{ content_block.alignment }}{% endif %}"{% if banner_container_attribute != blank %} data-banner-container{% endif %}>
-      <div class="SC-Banner_content">
+      <div class="SC-Banner_content" data-scroll-reveal>
 
         {%- unless content_block.title == blank %}
           <h2 class="SC-Banner_heading">

@@ -14,7 +14,7 @@
   data-cb="{{ content_block.identifier }}">
 
   {%- if content_block.title != blank or content_block.subtitle != blank %}
-    <header class="SC-ContentBlockContainer_header sc-max-width sc-p-none {% if alignment == 'center-text' %}{{ alignment_value}}{% endif %}">
+    <header class="SC-ContentBlockContainer_header sc-max-width sc-p-none {% if alignment == 'center-text' %}{{ alignment_value}}{% endif %}" data-scroll-reveal>
       {%- if content_block.pull_text != blank %}
         <p class="sc-font-base sc-font-bold sc-shade-dark sc-uppercase">
           {{ content_block.pull_text | strip_html }}
