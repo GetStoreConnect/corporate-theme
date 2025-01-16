@@ -77,4 +77,29 @@ document.addEventListener('DOMContentLoaded', function () {
     let container = banner.querySelector('[data-banner-container]');
     bannerHeightSetter(headerHeight, container);
   });
+
+  // Scroll reveal 
+
+  const sections = document.querySelectorAll('[data-scroll-reveal]');
+
+  const revealSection = (entry, observer) => {
+
+    if (entry.isIntersecting) {
+      section.classList.add('item');
+      entry.target.classList.remove('item-hidden');
+      observer.unobserve(entry.target);
+    }
+  };
+
+  const sectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => revealSection(entry, observer));
+  }, {
+    root: null,
+    threshold: 0.01,
+  });
+
+  sections.forEach((section) => {
+    sectionObserver.observe(section);    
+  });
+
 });
