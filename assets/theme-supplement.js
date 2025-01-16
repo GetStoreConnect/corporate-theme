@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const revealSection = (entry, observer) => {
 
     if (entry.isIntersecting) {
-      section.classList.add('item');
+      entry.target.classList.add('item');
       entry.target.classList.remove('item-hidden');
       observer.unobserve(entry.target);
     }
