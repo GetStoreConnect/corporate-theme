@@ -25,7 +25,7 @@
   </div>
   {% endif %}
 
-  {% assign count = content_block.products | size %}
+  {%- assign count = content_block.products | size %-}
 
   {% if count <= 3 %}
     <div class="sc-grid sc-two-to-three-column">

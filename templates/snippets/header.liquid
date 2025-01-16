@@ -20,21 +20,21 @@
       </a>
     {%- endcapture %}
 
-    {% comment %}Style variables {% endcomment %}
-    {% default cta_state: theme_variables['sc.header.cta.state']%}
-    {% default cta_color: theme_variables['sc.header.cta.font.hex.color'] %}
-    {% default cta_bg: theme_variables['sc.header.cta.background.hex.color'] %}
+    {%- comment -%}Style variables {%- endcomment -%}
+    {%- default cta_state: theme_variables['sc.header.cta.state'] -%}
+    {%- default cta_color: theme_variables['sc.header.cta.font.hex.color'] -%}
+    {%- default cta_bg: theme_variables['sc.header.cta.background.hex.color'] -%}
 
-    {% comment %}Top header content {% endcomment %}
-    {% default top_header_state: theme_variables['sc.header.top.header.state'] %}
+    {%- comment -%}Top header content {%- endcomment -%}
+    {%- default top_header_state: theme_variables['sc.header.top.header.state'] -%}
 
     <header class="sc-header" id="sc-header" data-header>
       <div class="sc-header_top sc-hide-up-to-large">
-        {% if top_header_state == 'on' %}
+        {%- if top_header_state == 'on' %}
         <div class="sc-header_top_inner sc-flex sc-align-items-center sc-justify-center sc-gap-xlarge sc-lg:pe-micro sc-ms-auto sc-lg:ps-large sc-color-white">
           <span>{{ "sc.header.top.header.message" | t }}</span>
         </div>
-        {% endif %}
+        {%- endif %}
       </div>
       {%- render "header/geolocation" %}
       <div class="sc-header_wrapper" data-header-wrapper>
@@ -66,10 +66,10 @@
           </div>
 
           <ul class="sc-header_inner_right sc-menu sc-flex sc-gap-base sc-align-items-center sc-font-small">
-            {%- render "header/dropdown/search" %}
-            {%- render 'header/dropdown/account' %}
-            {%- render "header/dropdown/cart" %}
-            {%- render "header/dropdown/cta", state: cta_state, bg: cta_bg, color: cta_color %}
+            {% render "header/dropdown/search" %}
+            {% render 'header/dropdown/account' %}
+            {% render "header/dropdown/cart" %}
+            {% render "header/dropdown/cta", state: cta_state, bg: cta_bg, color: cta_color %}
             <button
               data-menu-init="{% if current_store.header_menu != blank %}{{ current_store.header_menu.identifier }}{% else %}header{% endif %}"
               class="SC-Icon sc-hide-large-and-up"

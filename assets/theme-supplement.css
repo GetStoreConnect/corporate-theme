@@ -1,14 +1,4 @@
 :root {
-  --sc-color-primary-h: 0;
-  --sc-color-primary-s: 0%;
-  --sc-color-primary-l: 0%;
-  --sc-color-primary-a: 1;
-  --sc-color-primary: hsla(0, 0%, 0%, 1);
-  --sc-color-secondary-h: 180;
-  --sc-color-secondary-s: 19%;
-  --sc-color-secondary-l: 23%;
-  --sc-color-secondary-a: 1;
-  --sc-color-secondary: hsla(180, 2%, 25%, 1);
   --sc-header-bg: white;
   --sc-header-color: var(--sc-shade-darkest);
   --sc-menu-link-color-hover: var(--sc-shade-dark);
@@ -102,6 +92,51 @@ h2 {
   .SC-Article_heading {
     font-size: var(--sc-font-gigantic);
   }
+}
+
+.SC-Banner {
+  background-position: center;
+}
+.SC-Banner_subheading {
+  color: currentColor;
+}
+.SC-Banner_overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.SC-Banner.offset, .SC-Banner.hero_image {
+  color: white;
+}
+@media screen and (min-width: 768px) {
+  .SC-Banner_container.sc-bottom {
+    justify-content: flex-start;
+    transform: translateX(5%);
+  }
+}
+@media screen and (min-width: 768px) {
+  .SC-Banner_container.sc-bottom .SC-Banner_content {
+    align-self: flex-end;
+    bottom: var(--sc-spacing-xlarge);
+  }
+}
+.SC-Banner_cta {
+  background-color: white;
+  color: var(--sc-color-primary);
+  border: 1px solid white;
+  border-radius: 25px;
+  transition: all 0.35s ease-in-out;
+}
+.SC-Banner_cta:hover {
+  background-color: var(--sc-color-primary);
+  color: white;
+  border-color: var(--sc-color-primary);
+}
+
+.SC-ContentBlockContainer.offset {
+  background-color: hsla(var(--sc-color-primary-h), var(--sc-color-primary-s), 92%, 1);
 }
 
 .sc-header {
@@ -350,12 +385,6 @@ h2 {
   color: inherit;
 }
 
-.SC-Banner_cta {
-  background-color: transparent;
-  color: var(--sc-color-primary);
-  border: 2px solid var(--sc-color-primary);
-}
-
 @media screen and (max-width: 992px) {
   .SC-Menu.dropdown:not(.SC-Cart) {
     position: fixed;
@@ -520,6 +549,23 @@ h2 {
   transform: scaleY(1);
 }
 
+.item:not(.item-hidden) {
+  animation: slideUp 1s ease-out forwards;
+}
+.item-hidden {
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .sc-bg-primary {
   background-color: var(--sc-color-primary);
 }
