@@ -3,19 +3,19 @@
   <input type="hidden" name="quantity" value="1">
   {%- if product.can_purchase? %}
     {%- if product.bookable? %}
-      <a href="{{ product.path }}" class="SC-Button SC-Button-expanded sc-border-dark sc-hover-bg-dark:hover" data-js-buy-now="true">
+      <a href="{{ product.path }}" class="SC-Button SC-Button-expanded SC-Button-primary" data-js-buy-now="true">
         {{ "shared.product_buttons.check_availability" | t }}
       </a>
     {%- elsif product.bundle_lead? %}
-      <a href="{{ product.path }}" class="SC-Button SC-Button-expanded sc-border-dark sc-hover-bg-dark:hover" data-js-buy-now="true">
+      <a href="{{ product.path }}" class="SC-Button SC-Button-expanded SC-Button-primary" data-js-buy-now="true">
         {{ "shared.product_buttons.configure_bundle" | t }}
       </a>
     {%- elsif product.variants.size > 0 %}
-      <a href="{{ product.path }}" class="SC-Button SC-Button-expanded sc-border-dark sc-hover-bg-dark:hover" data-js-buy-now="true">
+      <a href="{{ product.path }}" class="SC-Button SC-Button-expanded SC-Button-primary" data-js-buy-now="true">
         {{ "shared.product_buttons.select_option" | t }}
       </a>
     {%- else %}
-      <input type="submit" value="{{ product.buy_it_now_text }}" class="SC-Button SC-Button-expanded sc-border-dark sc-hover-bg-dark:hover" data-js-buy-now="true">
+      <input type="submit" value="{{ product.buy_it_now_text }}" class="SC-Button SC-Button-expanded SC-Button-primary" data-js-buy-now="true">
     {%- endif %}
   {%- endif %}
 {%- endform %}
