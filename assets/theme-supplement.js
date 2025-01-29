@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const CUSTOM_PARAMS =  {
       items: 1,
       responsive: {
+        576: { items: 2},
         768: { items: 3 },
         992: { items: 3 },
         1700: { items: 4 }
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
           featuredSlider.init('[data-featured-slider=' + slider.getAttribute('data-featured-slider') + ']');
         });
       }
-    })
+    });
 
     return {
       init: (selector, params) => {
