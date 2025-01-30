@@ -6,15 +6,15 @@
   --sc-footer-color: hsl(222, 71%, 12%);
   --sc-font-family: "Inter", apple-system, BlinkMacSystemFont, sans-serif;
   --sc-font-family-secondary: "Rubik", apple-system, BlinkMacSystemFont, sans-serif;
-  --sc-border-radius: 0;
-  --sc-border-rounded: 7px;
+  --sc-border-radius: 5px;
+  --sc-border-rounded: 10px;
   --sc-border-width: 2px;
   --sc-border-width-md: 720px;
   --sc-max-width-lg: calc(1190px + 60px);
   --sc-max-width: calc(1190px + 60px);
   --sc-max-width-skinny: 760px;
   --sc-line-height: 1.5;
-  --sc-grid-gap: var(--sc-spacing-xlarge);
+  --sc-grid-gap: 25px;
 }
 
 body {
@@ -135,8 +135,9 @@ h2 {
   border-color: var(--sc-color-primary);
 }
 
-.SC-ContentBlockContainer.offset {
-  background-color: hsla(var(--sc-color-primary-h), var(--sc-color-primary-s), 92%, 1);
+.SC-ContentBlockContainer.sc-offset {
+  background-color: hsla(var(--sc-color-primary-h), var(--sc-color-primary-s), 97%, 1);
+  color: hsla(var(--sc-color-primary-h), var(--sc-color-primary-s), 10%, 1);
 }
 
 .sc-header {
@@ -343,6 +344,10 @@ h2 {
   list-style: none;
 }
 
+.SC-Notice {
+  color: hsla(var(--sc-color-primary-h), var(--sc-color-primary-s), 40%, 1);
+}
+
 .SC-PageHeader_wrapper {
   max-width: var(--sc-max-width);
 }
@@ -360,6 +365,10 @@ h2 {
 }
 .SC-PageHeader_heading, .SC-PageHeader_subheading {
   color: currentColor;
+}
+
+.SC-ProductCard_tag {
+  font-size: var(--sc-font-tiny);
 }
 
 .SC-Menu.dropdown {
@@ -482,20 +491,16 @@ h2 {
   }
 }
 
+/*
 .SC-ContentBlockContainer {
   padding: var(--sc-spacing-base);
-}
-@media screen and (min-width: 768px) {
-  .SC-ContentBlockContainer {
+  @include md {
     padding: var(--sc-spacing-xlarge) var(--sc-spacing-base);
   }
-}
-@media screen and (min-width: 992px) {
-  .SC-ContentBlockContainer {
+  @include lg {
     padding: var(--sc-spacing-xlarge) 0;
   }
-}
-
+}*/
 .SC-Menu_item.tier2 > a {
   padding-top: var(--sc-spacing-small) !important;
   padding-bottom: var(--sc-spacing-small) !important;
@@ -577,11 +582,11 @@ h2 {
   color: white;
 }
 
-.sc-max-width {
+.sc-max-width:not(.sc-expand), .sc-max-width:not(.sc-expanded) {
   max-width: var(--sc-max-width-md);
 }
 @media screen and (min-width: 992px) {
-  .sc-max-width {
+  .sc-max-width:not(.sc-expand), .sc-max-width:not(.sc-expanded) {
     max-width: var(--sc-max-width-lg);
   }
 }
@@ -682,6 +687,20 @@ h2 {
   padding: 0;
 }
 
+@media screen and (min-width: 992px) {
+  .sc-lg\:ps-none {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sc-xxlg\:ps-none {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .tns-controls button {
   width: 40px;
   height: 40px;
@@ -693,13 +712,8 @@ h2 {
 }
 
 .tns-cards .tns-controls button {
-  top: 0;
-}
-@media screen and (min-width: 768px) {
-  .tns-cards .tns-controls button[data-controls=prev] {
-    left: unset;
-    right: 80px;
-  }
+  background-color: white;
+  box-shadow: var(--sc-shadow);
 }
 
 .sc-rotate-270 {

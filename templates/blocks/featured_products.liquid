@@ -1,52 +1,56 @@
-{% assign alignment = content_block.alignment %}
+{%- liquid 
+  assign alignment = content_block.alignment | default: blank
+  assign type = content_block.sub_type | default: blank
 
-{%- capture alignment_value %}
-  {%- case alignment %}
-    {%- when "left" %}
-      {{ "sc-align-items-left" }}
-    {%- when "center" %}
-      {{ "sc-align-items-center" }}
-    {%- when "right" %}
-      {{ "sc-align-items-end" }}
-  {%- endcase %}
-{%- endcapture %}
+  case alignment 
+    when blank
+      assign alignment_class = "sc-align-items-left"
+    when "left" 
+      assign alignment_class = "sc-align-items-left" 
+    when "center" 
+      assign alignment_class = "sc-align-items-center" 
+    when "right" 
+      assign alignment_class = "sc-align-items-end" 
+  endcase 
+-%}
 
-<section class="SC-FeaturedProducts sc-expand tns-cards"
+<section class="SC-FeaturedProducts sc-expand sc-ps-small sc-md:ps-base sc-xxlg:ps-none sc-pe-base sc-md:pe-large tns-cards{% if type != blank %} {{ type }}{% endif %}"
          id="SC-ContentBlock-{{ content_block.identifier }}">
-
-  {% if content_block.title != blank or content_block.subtitle %}
-  <div class="SC-FeaturedProducts_header sc-mb-base sc-flex-col {{ alignment_value }}">
-    {% if content_block.title != blank %}
-      <h2 class="sc-font-bold">{{ content_block.title }}</h2>
-    {% endif %}
-    {% if content_block.subtitle != blank %}
-      <p class="sc-font-large">{{ content_block.subtitle }}</p>
-    {% endif %}
-  </div>
-  {% endif %}
+  {%- if content_block.title != blank or content_block.subtitle %}
+    <div class="SC-FeaturedProducts_header sc-flex-col sc-max-width sc-ms-auto {{ alignment_class }}">
+      {%- if content_block.title != blank %}
+        <h2 class="sc-font-bold">{{ content_block.title }}</h2>
+      {%- endif %}
+      {%- if content_block.subtitle != blank %}
+        <p class="sc-font-large">{{ content_block.subtitle }}</p>
+      {%- endif %}
+    </div>
+  {%- endif -%}
 
   {%- assign count = content_block.products | size -%}
-
-  {% if count <= 3 %}
-    <div class="sc-grid sc-two-to-three-column">
+  {%- if count <= 3 %}
+    <div class="sc-grid sc-two-to-three-column sc-max-width sc-ms-auto">
       {%- for product in content_block.products %}
         {%- render "products/card", product: product %}
       {%- endfor %}
     </div>
-  {% elsif count >  3 %}
-      <div class="sc-pb-base sc-flex sc-gap sc-mt-xlarge" data-featured-slider="{{ content_block.identifier }}">
+  {%- elsif count >  3 %}
+   <div class="sc-max-width sc-ms-auto">
+      <div data-featured-slider="{{ content_block.identifier }}">
         {%- for product in content_block.products %}
-          {%- render "products/card", product: product %}
+          <div>
+            {%- render "products/card", product: product %}
+          </div>
         {%- endfor %}
       </div>
-  {% endif %}
+    </div>
+  {%- endif %}
 
   {%- if content_block.link_label %}
-    <div class="SC-FeaturedProducts_footer sc-flex sc-justify-center sc-mt-base">
+    <div class="SC-FeaturedProducts_footer sc-flex sc-justify-center sc-mt-base sc-max-width sc-ms-auto">
       <a href="{{ content_block.link_target }}" class="sc-button sc-button_outline">
         <span>{{ content_block.link_label }}</span>
       </a>
     </div>
   {%- endif %}
-
 </section>
