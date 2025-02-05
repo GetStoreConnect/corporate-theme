@@ -23,47 +23,43 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   headerObserver.observe(headerEl);
-
+  
   // Sliders
-  const featuredSlider = (function () {
+  const CUSTOM_PARAMS =  {
+    items: 1,
+    responsive: {
+      576: { items: 2},
+      768: { items: 3 },
+      992: { items: 3 },
+      1700: { items: 4 }
+    },
+    gutter: 20,
+    nav: false,
+    swipeAngle: false,
+    speed: 400
+  }
 
-    const CUSTOM_PARAMS =  {
-      items: 1,
-      responsive: {
-        576: { items: 2},
-        768: { items: 3 },
-        992: { items: 3 },
-        1700: { items: 4 }
-      },
-      gutter: 20,
-      nav: false,
-      swipeAngle: false,
-      speed: 400
-    }
-
-    let customsliders = [];
-    // Check if the page has Custom Carousels before intialising them
-    $(() => {
-      if (document.querySelectorAll('[data-featured-slider]')) {
-        [...document.querySelectorAll('[data-featured-slider]')].map(slider => {
-          featuredSlider.init('[data-featured-slider=' + slider.getAttribute('data-featured-slider') + ']');
-        });
+  let sliders = [];
+  
+  function sliderInit() {
+    ;[...document.querySelectorAll('[data-featured-slider]:not([data-initialized])')].forEach((sliderEl) => {
+      sliderEl.setAttribute('data-initialized', true)
+      const container = {
+        container: '[data-featured-slider=' + sliderEl.getAttribute('data-featured-slider') + ']',
       }
-    });
+      const slideshow = tns({ ...CUSTOM_PARAMS, ...container })
+  
+      let resizeId
+  
+      sliders.push(sliderEl)
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeId)
+        resizeId = setTimeout(() => slideshow.updateSliderHeight(), 300)
+      })
+    })
+  }
 
-    return {
-      init: (selector, params) => {
-        const container = {
-          container: selector,
-        },
-
-        slider = tns({ ...CUSTOM_PARAMS, ...params, ...container });
-
-        customsliders.push(slider);
-      }
-    }
-
-  })();
+  sliderInit();
 
   // Banner height
   const bannerHeightSetter = (h, c) => {
