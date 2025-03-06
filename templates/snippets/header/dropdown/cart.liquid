@@ -1,10 +1,12 @@
-{%- capture item_count %}
+{%- require "scripts/nav.js" -%}
+
+{%- capture item_count -%}
   {%- if current_cart != blank and current_cart.item_count > 0 %}
     <div class="SC-Count sc-ml-tiny" data-cart-nav-count>
       {{ current_cart.item_count }}
     </div>
   {%- endif %}
-{%- endcapture %}
+{%- endcapture -%}
 
 <li class="SC-Menu_item dropdown end" data-root-nav data-cart-menu>
   <a href="{{ current_store.cart_path }}" class="SC-Menu_link sc-hide-up-to-medium sc-align-items-end" data-nav-trigger="cart">
@@ -12,7 +14,7 @@
       {{ "header.dropdowns.cart.heading" | t }}
     </span>
     <span class="sc-hide-xlarge-and-up">
-      {%- render "shared/icons/cart", icon_width: '1.3em' %}
+      {% render "shared/icons/cart", icon_width: '1.3em' %}
     </span>
     {{ item_count }}
   </a>

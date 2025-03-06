@@ -2,6 +2,7 @@
   {%- if current_store.header != blank %}
     {{ current_store.header.render }}
   {%- else %}
+    {%- require "scripts/menu.js" -%}
     {%- capture store_logo %}
       <a href="{{ current_store.home_path }}" class="SC-Logo">
         {%- if current_store.logo != blank %}
