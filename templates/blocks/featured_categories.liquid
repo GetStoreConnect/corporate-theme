@@ -11,11 +11,13 @@
   {%- endcase %}
 {%- endcapture %}
 
+{%- require "scripts/featured-slider.js" -%}
+
 <section class="SC-ContentBlock SC-FeaturedCategories sc-expand sc-pe-large sc-md:me-large tns-cards"
          id="SC-ContentBlock-{{ content_block.identifier }}">
 
   {% if content_block.title != blank or content_block.subtitle %}
-  <div class="SC-FeaturedCategories_header sc-mb-base sc-flex-col {{ alignment_value }}">
+  <div class="SC-FeaturedCategories_header sc-flex-col sc-max-width sc-ms-auto sc-mb-base sc-flex-col {{ alignment_value }}">
     {% if content_block.title != blank %}
       <h2 class="sc-font-xxlarge sc-font-bold sc-m-none">{{ content_block.title }}</h2>
     {% endif %}
@@ -25,25 +27,27 @@
   </div>
   {% endif %}
 
-  {% assign count = content_block.product_categories.size %}
+  {%- assign count = content_block.product_categories.size -%}
 
-  {% if count <= 4 %}
-    <div class="sc-grid sc-two-to-four-column">
+  {%- if count <= 4 %}
+    <div class="sc-grid sc-two-to-four-column sc-gap sc-max-width sc-ms-auto">
       {%- for product_category in content_block.product_categories %}
         {%- render "shared/category_card", product_category: product_category %}
       {%- endfor %}
     </div>
-  {% elsif count >  4 %}
-      <div class="sc-pb-base sc-flex sc-gap sc-mt-xlarge" data-featured-slider="{{ content_block.identifier }}">
+  {%- elsif count >  4 %}
+    <div class="sc-max-width sc-ms-auto">
+      <div data-featured-slider="{{ content_block.identifier }}">
         {%- for product_category in content_block.product_categories %}
           {%- render "shared/category_card", product_category: product_category %}
         {%- endfor %}
       </div>
-  {% endif %}
+    </div>
+  {%- endif %}
 
-  <div class="SC-FeaturedCategories_footer sc-flex-col sc-mt-base {{ alignment_value }}">
+  <div class="SC-FeaturedCategories_footer sc-flex sc-justify-center sc-mt-base sc-max-width sc-ms-auto">
     <div>
-      <a class="sc-button sc-button_outline" href="{{ content_block.link_target }}">
+      <a class="SC-Link" href="{{ content_block.link_target }}">
         <span>{{ content_block.link_label }}</span>
       </a>
     </div>

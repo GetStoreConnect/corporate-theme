@@ -14,6 +14,8 @@
   endcase 
 -%}
 
+{%- require "scripts/featured-slider.js" -%}
+
 <section class="SC-FeaturedProducts sc-expand sc-ps-small sc-md:ps-base sc-xxlg:ps-none sc-pe-base sc-md:pe-large tns-cards{% if type != blank %} {{ type }}{% endif %}"
          id="SC-ContentBlock-{{ content_block.identifier }}">
   {%- if content_block.title != blank or content_block.subtitle %}
@@ -29,7 +31,7 @@
 
   {%- assign count = content_block.products | size -%}
   {%- if count <= 3 %}
-    <div class="sc-grid sc-two-to-three-column sc-max-width sc-ms-auto">
+    <div class="sc-grid sc-two-to-three-column sc-gap sc-max-width sc-ms-auto">
       {%- for product in content_block.products %}
         {%- render "products/card", product: product %}
       {%- endfor %}
@@ -47,8 +49,8 @@
   {%- endif %}
 
   {%- if content_block.link_label %}
-    <div class="SC-FeaturedProducts_footer sc-flex sc-justify-center sc-mt-base sc-max-width sc-ms-auto">
-      <a href="{{ content_block.link_target }}" class="sc-button sc-button_outline">
+    <div class="SC-FeaturedProducts_footer sc-flex sc-justify-center sc-mt-large sc-max-width sc-ms-auto">
+      <a href="{{ content_block.link_target }}" class="SC-Link">
         <span>{{ content_block.link_label }}</span>
       </a>
     </div>
