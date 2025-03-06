@@ -1,6 +1,7 @@
 {%- liquid 
   assign alignment = content_block.alignment | default: blank
   assign type = content_block.sub_type | default: blank
+  assign count = content_block.products | size 
 
   case alignment 
     when blank
@@ -14,7 +15,9 @@
   endcase 
 -%}
 
-{%- require "scripts/featured-slider.js" -%}
+{%- if count >  3 %}
+  {% require "scripts/featured-slider.js" %}
+{%- endif %}
 
 <section class="SC-FeaturedProducts sc-expand sc-ps-small sc-md:ps-base sc-xxlg:ps-none sc-pe-base sc-md:pe-large tns-cards{% if type != blank %} {{ type }}{% endif %}"
          id="SC-ContentBlock-{{ content_block.identifier }}">
@@ -29,7 +32,6 @@
     </div>
   {%- endif -%}
 
-  {%- assign count = content_block.products | size -%}
   {%- if count <= 3 %}
     <div class="sc-grid sc-two-to-three-column sc-gap sc-max-width sc-ms-auto">
       {%- for product in content_block.products %}

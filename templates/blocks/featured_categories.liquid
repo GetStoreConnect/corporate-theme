@@ -1,4 +1,5 @@
 {% assign alignment = content_block.alignment %}
+{%- assign count = content_block.product_categories.size -%}
 
 {%- capture alignment_value %}
   {%- case alignment %}
@@ -11,7 +12,9 @@
   {%- endcase %}
 {%- endcapture %}
 
-{%- require "scripts/featured-slider.js" -%}
+{%- if count > 4 %}
+  {%- require "scripts/featured-slider.js" -%}
+{%- endif %}
 
 <section class="SC-ContentBlock SC-FeaturedCategories sc-expand sc-pe-large sc-md:me-large tns-cards"
          id="SC-ContentBlock-{{ content_block.identifier }}">
@@ -26,8 +29,6 @@
     {% endif %}
   </div>
   {% endif %}
-
-  {%- assign count = content_block.product_categories.size -%}
 
   {%- if count <= 4 %}
     <div class="sc-grid sc-two-to-four-column sc-gap sc-max-width sc-ms-auto">
