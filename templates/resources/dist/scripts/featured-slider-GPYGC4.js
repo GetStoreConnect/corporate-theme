@@ -1,15 +1,15 @@
 // Sliders
 const CUSTOM_PARAMS =  {
   items: 1,
+  gutter: 15,
   responsive: {
-    576: { items: 2},
-    768: { items: 3 },
-    992: { items: 3 },
-    1700: { items: 4 }
+    768: { items: 3, gutter: 20 },
+    992: { items: 4 }
   },
-  gutter: 20,
+  touch: true,
+  mouseDrag: true,
   nav: false,
-  swipeAngle: false,
+  swipeAngle: 20,
   speed: 400
 }
 
