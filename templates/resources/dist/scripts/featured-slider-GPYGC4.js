@@ -3,7 +3,7 @@ const CUSTOM_PARAMS =  {
   items: 1,
   gutter: 15,
   responsive: {
-    768: { items: 3, gutter: 20},
+    768: { items: 3, gutter: 20 },
     992: { items: 4 }
   },
   touch: true,
