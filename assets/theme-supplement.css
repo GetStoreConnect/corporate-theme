@@ -1,22 +1,3 @@
-:root {
-  --sc-header-bg: white;
-  --sc-header-color: var(--sc-shade-darkest);
-  --sc-menu-link-color-hover: var(--sc-shade-dark);
-  --sc-footer-bg: #FCFCFC;
-  --sc-footer-color: hsl(222, 71%, 12%);
-  --sc-font-family: "Inter", apple-system, BlinkMacSystemFont, sans-serif;
-  --sc-font-family-secondary: "Rubik", apple-system, BlinkMacSystemFont, sans-serif;
-  --sc-border-radius: 5px;
-  --sc-border-rounded: 10px;
-  --sc-border-width: 2px;
-  --sc-border-width-md: 720px;
-  --sc-max-width-lg: calc(1190px + 60px);
-  --sc-max-width: calc(1190px + 60px);
-  --sc-max-width-skinny: 760px;
-  --sc-line-height: 1.5;
-  --sc-grid-gap: 25px;
-}
-
 body {
   font-size: var(--sc-font-medium);
 }

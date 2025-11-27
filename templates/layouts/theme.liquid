@@ -26,6 +26,7 @@
     {{ theme_supplement_stylesheet }}
     {% if current_store.global_css != blank %}<style>{{ current_store.global_css }}</style>{% endif %}
     {%- render "styles" %}
+    {%- render "shared/root_css" %}
 
     {%- comment -%} Scripts {%- endcomment -%}
     {%- require "scripts/configure.js" %}
