@@ -30,7 +30,7 @@
       <button class="SC-Menu_button sc-hide-medium-and-up" data-nav-close="root" type="button">
         {{ "header.dropdowns.cart.close" | t }}
       </button>
-      {%- comment %} Line items {% endcomment %}
+      {%- comment %} Cart items {% endcomment %}
 
       <div class="SC-CartProducts sc-grow u-overflow-y-auto">
         {%- render "shared/cart/items", source: current_cart, compact: true, width: "70px" %}
