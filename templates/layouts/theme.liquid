@@ -21,6 +21,8 @@
     {{ csp_meta_tag }}
     {%- render "meta_data", title: title, meta_keywords: meta_keywords, meta_description: meta_description %}
 
+    {%- render "shared/theme_identity" %}
+
     {%- comment -%} Styles {%- endcomment -%}
     {%- require "styles/theme.css" %}
     {{ theme_supplement_stylesheet }}
