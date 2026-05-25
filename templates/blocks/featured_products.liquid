@@ -1,26 +1,25 @@
-{%- liquid 
-  assign alignment = content_block.alignment | default: blank
+{%- liquid
+  assign alignment = content_block.alignment | default: "left"
   assign type = content_block.sub_type | default: blank
-  assign count = content_block.products | size 
+  assign count = content_block.products | size
 
-  case alignment 
-    when blank
+  case alignment
+    when "center"
+      assign alignment_class = "sc-align-items-center"
+    when "right"
+      assign alignment_class = "sc-align-items-end"
+    else
       assign alignment_class = "sc-align-items-left"
-    when "left" 
-      assign alignment_class = "sc-align-items-left" 
-    when "center" 
-      assign alignment_class = "sc-align-items-center" 
-    when "right" 
-      assign alignment_class = "sc-align-items-end" 
-  endcase 
+  endcase
 -%}
 
-{%- if count >  3 %}
+{%- if count > 3 %}
   {% require "scripts/featured-slider.js" %}
 {%- endif %}
 
 <section class="SC-FeaturedProducts sc-expand sc-ps-small sc-md:ps-base sc-xxlg:ps-none sc-pe-base sc-md:pe-large tns-cards{% if type != blank %} {{ type }}{% endif %}"
          id="SC-ContentBlock-{{ content_block.identifier }}">
+
   {%- if content_block.title != blank or content_block.subtitle %}
     <div class="SC-FeaturedProducts_header sc-flex-col sc-max-width sc-ms-auto {{ alignment_class }}">
       {%- if content_block.title != blank %}
@@ -35,16 +34,32 @@
   {%- if count <= 3 %}
     <div class="sc-grid sc-two-to-three-column sc-gap sc-max-width sc-ms-auto">
       {%- for product in content_block.products %}
-        {%- render "products/card", product: product %}
+        {%- assign all_variants = product.variants | depaginate %}
+        {%- if all_variants.size > 0 %}
+          {%- for variant in all_variants limit: 3 %}
+            {%- render "products/card", product: variant %}
+          {%- endfor %}
+        {%- else %}
+          {%- render "products/card", product: product %}
+        {%- endif %}
       {%- endfor %}
     </div>
-  {%- elsif count >  3 %}
-   <div class="sc-max-width sc-ms-auto">
+  {%- elsif count > 3 %}
+    <div class="sc-max-width sc-ms-auto">
       <div data-featured-slider="{{ content_block.identifier }}">
         {%- for product in content_block.products %}
-          <div>
-            {%- render "products/card", product: product %}
-          </div>
+          {%- assign all_variants = product.variants | depaginate %}
+          {%- if all_variants.size > 0 %}
+            {%- for variant in all_variants limit: 3 %}
+              <div>
+                {%- render "products/card", product: variant %}
+              </div>
+            {%- endfor %}
+          {%- else %}
+            <div>
+              {%- render "products/card", product: product %}
+            </div>
+          {%- endif %}
         {%- endfor %}
       </div>
     </div>
