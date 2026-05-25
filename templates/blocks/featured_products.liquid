@@ -1,17 +1,15 @@
 {%- liquid
-  assign alignment = content_block.alignment | default: blank
+  assign alignment = content_block.alignment | default: "left"
   assign type = content_block.sub_type | default: blank
   assign count = content_block.products | size
 
   case alignment
-    when blank
-      assign alignment_class = "sc-align-items-left"
-    when "left"
-      assign alignment_class = "sc-align-items-left"
     when "center"
       assign alignment_class = "sc-align-items-center"
     when "right"
       assign alignment_class = "sc-align-items-end"
+    else
+      assign alignment_class = "sc-align-items-left"
   endcase
 -%}
 
