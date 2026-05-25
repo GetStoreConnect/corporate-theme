@@ -23,11 +23,10 @@ You can create new templates as long as they reside within the standard director
 - Full width and height hero banners
 - Minimalistic header
 - Animated image with content overlay
-- Featured products and categories slider
+- Featured products and categories slider *(Updated to render each variant of a master-with-variants product as its own card, hiding the master)*
 - Featured articles cards
 - Improved container layout 100% responsive
-- Page top banners
-- Corporate footer style
+- Page top banners *(Features a conditional blue header banner that only renders when the page `title` matches the `meta_title`)*
 
 ### New Content Block
 
@@ -41,6 +40,10 @@ You can create new templates as long as they reside within the standard director
 - featured_articles
 - featured_categories
 - featured_products
+
+### Modified Page Templates
+
+- pages/page
 
 ## How to Add Content Blocks to Picklist
 
