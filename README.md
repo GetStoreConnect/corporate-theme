@@ -23,6 +23,7 @@ You can create new templates as long as they reside within the standard director
 - Full width and height hero banners
 - Minimalistic header
 - Animated image with content overlay
+- Corporate Footer Style
 - Featured products and categories slider *(Updated to render each variant of a master-with-variants product as its own card, hiding the master)*
 - Featured articles cards
 - Improved container layout 100% responsive
