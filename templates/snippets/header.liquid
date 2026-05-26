@@ -69,7 +69,7 @@
           <ul class="sc-header_inner_right sc-menu sc-flex sc-gap-base sc-align-items-center sc-font-small">
             {% render "header/dropdown/search" %}
             {% render 'header/dropdown/account' %}
-            {% render "header/dropdown/cart" %}
+            {%- component "cart-menu", reload: "sc.cart-updated sc.voucher-applied sc.voucher-removed" %}
             {% render "header/dropdown/cta", state: cta_state, bg: cta_bg, color: cta_color %}
             <button
               data-menu-init="{% if current_store.header_menu != blank %}{{ current_store.header_menu.identifier }}{% else %}header{% endif %}"
