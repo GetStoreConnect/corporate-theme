@@ -9,7 +9,7 @@
     <img
       class="SC-ImageBesideText_image"
       src="{{ content_block.image.huge_url }}"
-      alt="{{ content_block.image.alt_text | escape }}"
+      alt="{{ content_block.image.alt_text }}"
       loading="lazy">
   {%- else %}
     <svg
@@ -29,7 +29,7 @@
 
     {%- unless content_block.title == blank %}
       <h2 class="SC-ImageBesideText_headline">
-        {{ content_block.title | escape }}
+        {{ content_block.title }}
       </h2>
     {%- endunless %}
 
@@ -47,7 +47,7 @@
 
     {%- unless content_block.link_label == blank and content_block.link_target == blank %}
       <a href="{{ content_block.link_target }}" class="SC-ImageBesideText_cta sc-align-items-center sc-inline-flex sc-gap-medium sc-font-large">
-        {{ content_block.link_label | escape }}
+        {{ content_block.link_label }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="1em"
