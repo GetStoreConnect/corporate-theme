@@ -1,5 +1,7 @@
 # Corporate Theme
 
+**Version: StoreConnect v22**
+
 This is a multi-purpose theme, ideal for corporate, B2B, or services companies.
 
 ![corporate_theme_preview](https://github.com/GetStoreConnect/corporate-theme/assets/77841884/6bff631e-1f28-43a0-a8a0-cee82b9191dd)
